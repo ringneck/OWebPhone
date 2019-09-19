@@ -67,3 +67,11 @@ ctxSip uses:
 Tested on:
 
 - [Kazoo](http://2600hz.com)
+- [OLSSOO](http://www.olssoo.com)
+
+
+## For Korean Users
+
+Translate some menus and titles
+
+
