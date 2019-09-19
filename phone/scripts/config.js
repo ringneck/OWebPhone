@@ -2,7 +2,7 @@ var user = {
     //  User Name
     "User" : "1010",
     //  Password
-    "Pass" : "olssoo3838i",
+    "Pass" : "015500X015500",
     //  Auth Realm
     "Realm"   : "webphone.olssoo.com",
     // Display Name
