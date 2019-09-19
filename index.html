@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/gif" href="img/favicon.ico" />
+
+        <title>OWP-JavascriptSIPclient</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <body>
+
+	 <button type="button" class="btn btn-primary" id="btnConfig">Web Phone 실행</button>
+	 <img class="img-responsive" src="img/olssoo-wing.png" alt="" id="btnConfig" width="120" height="150">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <script>
+
+        $(document).ready(function() {
+		
+            // When the demo modal is launched, load the values from localStorage
+            $('#mdlDemo').on('show.bs.modal', function() {
+	        //$('#mdlDemo').on('show', function() {
+                var user = JSON.parse(localStorage.getItem('SIPCreds'));
+
+                if (user) {
+                    $.each(user, function(k, v) {
+                        $('input[name="'+k+'"]').val(v);
+                    });
+                }
+            });
+
+            // Save form to localStorage and validate
+            $('#btnConfig').click(function(event) {
+	        //$('#btnConfig').trigger('click' {
+
+                var user  = {},
+                    valid = true;
+
+                event.preventDefault();
+
+                // validate the form
+                $('#mdlDemo input').each(function(i) {
+                    if ($(this).val() === '') {
+                        $(this).closest('.form-group').addClass('has-error');
+                        valid = false;
+                    } else {
+                        $(this).closest('.form-group').removeClass('has-error');
+                    }
+                    user[$(this).attr('name')] = $(this).val();
+                });
+
+                // launch the phone window.
+                if (valid) {
+                    localStorage.setItem('SIPCreds', JSON.stringify(user));
+
+                    //var url      = 'https://' + window.location.host + window.location.pathname + '/phone',
+                    var url      = '../owp/phone',
+                        features = 'menubar=no,location=no,resizable=no,scrollbars=no,status=no,addressbar=no,width=320,height=500';
+
+                    if (!localStorage.getItem('ctxPhone')) {
+                        window.open(url, 'ctxPhone', features);
+                        $('#mdlDemo').modal('hide');
+                        return false;
+                    } else {
+                        window.alert('웹폰이 이미 실행되어 있습니다.');
+                    }
+                }
+
+            });
+        });
+
+    </script>
+   </body>
+</html>
