@@ -3,6 +3,7 @@ How to config /phone/scripts/config.js
 
 //  주식회사 얼쑤팩토리 VPBX 신청 후 발급받은 정보를 입력합니다. 
 
+```html
 var user = {
     //  SIP 사용자ID
     "User" : "sipuser",
@@ -15,6 +16,7 @@ var user = {
     // WebSocket 서버 URL
     "WSServer"  : "wss://wss.olssoo.com:8443"
 };
+```
 
 # ctxSip
 
