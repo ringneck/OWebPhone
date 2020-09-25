@@ -1,7 +1,7 @@
-# VPBX webphone 서비스 
+# makecall.io  WebPhone 서비스 
 How to config /phone/scripts/config.js
 
-//  주식회사 얼쑤팩토리 VPBX 신청 후 발급받은 정보를 입력합니다. 
+//  주식회사 얼쑤팩토리의 makecall.io 신청 후 발급받은 정보를 입력합니다. 
 
 ```html
 var user = {
